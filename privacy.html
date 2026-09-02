@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Glow</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+    :root {
+      --bg: #0A0713;
+      --surface: #171129;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --accent: #A655F9;
+      --cyan: #3FE0D0;
+      --text: #F3F1F8;
+      --text-muted: #8E87A5;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 20px;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 0 100px;
+    }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+    }
+    .nav-back:hover { text-decoration: underline; }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .effective-date {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 32px 0 12px;
+      color: #FFF;
+    }
+    p, ul {
+      color: #D3CEE5;
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    .highlight-box {
+      background: rgba(166, 85, 249, 0.10);
+      border: 1px solid rgba(166, 85, 249, 0.25);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 24px 0;
+    }
+    .highlight-box p { margin: 0; color: #FFF; font-weight: 500; }
+    footer {
+      text-align: center;
+      margin-top: 80px;
+      padding-top: 30px;
+      border-top: 1px solid var(--surface-border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--cyan); text-decoration: none; margin: 0 8px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-back">← Back to Glow</a>
+    <h1>Privacy Policy</h1>
+    <div class="effective-date">Effective: September 3, 2026</div>
+
+    <div class="highlight-box">
+      <p>🛡️ <strong>Summary:</strong> Glow is built with privacy as a foundational principle. We do not collect, store, transmit, or monetize any of your personal data, device information, or usage habits. The app operates completely locally on your iPhone.</p>
+    </div>
+
+    <h2>1. Information We Do Not Collect</h2>
+    <p>Glow does not collect any personal information whatsoever:</p>
+    <ul>
+      <li>No account creation, email address, name, or phone number required.</li>
+      <li>No analytics, telemetry, crash reporting SDKs, or tracking cookies.</li>
+      <li>No device location, GPS, or advertising identifier (IDFA) access.</li>
+      <li>No cloud servers, databases, or remote logging services.</li>
+    </ul>
+
+    <h2>2. Bluetooth Permissions</h2>
+    <p>Glow requests Bluetooth access (<code>NSBluetoothAlwaysUsageDescription</code> and <code>NSBluetoothPeripheralUsageDescription</code>) solely to discover and transmit lighting commands directly to your nearby compatible Bluetooth table lamp.</p>
+    <p>All Bluetooth transmissions are point-to-point between your iPhone and the lamp hardware. No Bluetooth data or peripheral identifiers are ever transmitted across the internet.</p>
+
+    <h2>3. Local Device Storage and Your Choices</h2>
+    <p>To preserve your experience across app launches, Glow saves minimal preferences locally on your iPhone using Apple's native <code>UserDefaults</code> storage. This includes:</p>
+    <ul>
+      <li>Your last selected colors and custom 4-band palettes.</li>
+      <li>The Bluetooth identifier (UUID) of your paired lamp to enable fast reconnects.</li>
+      <li>Your last power and brightness levels.</li>
+    </ul>
+    <p>This data never leaves your device. You can erase it by deleting Glow from your device. Because Glow has no accounts or servers, we do not hold a separate copy of this information and there is no account to delete.</p>
+
+    <h2>4. Apple Siri & Shortcuts Integration</h2>
+    <p>Glow integrates with Apple's native <code>AppIntents</code> framework. Voice commands are processed on-device by Apple's Siri speech engine under Apple's standard Privacy Policy. Glow only receives the resulting command action (e.g. "turn on" or "set color to red") to send to the lamp.</p>
+
+    <h2>5. Third-Party Services</h2>
+    <p>Glow does not contain any third-party SDKs, tracking libraries, or advertising networks. We have zero business relationships with data brokers or marketing firms.</p>
+
+    <h2>6. Changes to This Policy</h2>
+    <p>If Glow's data practices change, we will update this page and its effective date before those changes take effect.</p>
+
+    <h2>7. Contact Us</h2>
+    <p>If you have a question about this Privacy Policy or your local app data, contact:</p>
+    <p><strong>Speculative Dynamics</strong><br>Email: <a href="mailto:privacy@speculativedynamics.com" style="color: var(--cyan);">privacy@speculativedynamics.com</a><br><a href="support.html" style="color: var(--cyan);">Glow Support</a></p>
+
+    <footer>
+      <p>© 2026 Speculative Dynamics. All rights reserved.</p>
+      <p style="margin-top: 8px;">
+        <a href="index.html">Home</a> • 
+        <a href="privacy.html">Privacy Policy</a> • 
+        <a href="terms.html">Terms of Use</a> •
+        <a href="support.html">Support</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

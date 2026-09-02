@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Glow is a private, direct Bluetooth remote for compatible smart lamps.">
+  <title>Glow — Private Bluetooth Lamp Control</title>
+  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+    :root {
+      --bg: #0A0713;
+      --surface: #171129;
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --accent: #A655F9;
+      --accent-glow: rgba(166, 85, 249, 0.35);
+      --cyan: #3FE0D0;
+      --text: #F3F1F8;
+      --text-muted: #8E87A5;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 20px;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 0 100px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      box-shadow: 0 12px 40px var(--accent-glow);
+      margin-bottom: 24px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(166, 85, 249, 0.14);
+      color: var(--cyan);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(63, 224, 208, 0.25);
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #FFF 40%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 30px;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: #FFF;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 14px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 28px var(--accent-glow); }
+    .btn-secondary {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      color: var(--text);
+      box-shadow: none;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 60px 0;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 28px;
+    }
+    .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .voice-commands {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 32px;
+      margin: 40px 0;
+    }
+    .voice-commands h2 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+    .commands-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-family: monospace;
+      color: var(--cyan);
+    }
+    .support-section {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 36px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .support-section h2 { margin-bottom: 10px; }
+    .support-section p { color: var(--text-muted); margin-bottom: 20px; }
+    footer {
+      text-align: center;
+      margin-top: 80px;
+      padding-top: 30px;
+      border-top: 1px solid var(--surface-border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--cyan); text-decoration: none; margin: 0 10px; }
+    footer a:hover { text-decoration: underline; }
+    .disclaimer {
+      margin-top: 20px;
+      font-size: 0.78rem;
+      color: #645C7D;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="icon.png" alt="Glow App Icon" class="app-icon">
+      <br>
+      <span class="badge">iOS 17+ • Bluetooth Low Energy</span>
+      <h1>Glow</h1>
+      <p class="subtitle">A private, tracking-free remote for compatible smart lamps. Direct Bluetooth control with no accounts, no Wi-Fi setup, and no cloud service.</p>
+      <div class="hero-actions">
+        <a href="support.html" class="btn">Get Support</a>
+        <a href="privacy.html" class="btn btn-secondary">Privacy Policy</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <span class="card-icon">⚡</span>
+        <h3>Direct Bluetooth</h3>
+        <p>Connects instantly over local Bluetooth Low Energy. No Wi-Fi bridges, no pairing pins, and no third-party cloud servers required.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🎨</span>
+        <h3>4-Band Studio</h3>
+        <p>Control each of the 4 horizontal lighting sections independently with smooth gradient blending, HSB color wheel, and exact hex inputs.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🎙️</span>
+        <h3>Siri & Shortcuts</h3>
+        <p>Built on Apple's modern AppIntents framework. Speak naturally to Siri or automate lighting routines using the iOS Shortcuts app.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🛡️</span>
+        <h3>100% Offline & Private</h3>
+        <p>Zero telemetry, zero user tracking, and no external network traffic. All Bluetooth commands stay strictly within your room.</p>
+      </div>
+    </div>
+
+    <div class="voice-commands">
+      <h2>Native Siri Voice Control</h2>
+      <p style="color: var(--text-muted);">Glow registers directly with Apple Siri out-of-the-box. Try speaking these phrases to your iPhone, iPad, or Apple Watch:</p>
+      <div class="commands-list">
+        <div class="chip">"Hey Siri, turn on Glow"</div>
+        <div class="chip">"Hey Siri, turn off Glow"</div>
+        <div class="chip">"Hey Siri, set Glow to Warm White"</div>
+        <div class="chip">"Hey Siri, set Glow to Cozy"</div>
+        <div class="chip">"Hey Siri, set Glow to Red"</div>
+        <div class="chip">"Hey Siri, turn Glow Blue"</div>
+        <div class="chip">"Hey Siri, play Meteor on Glow"</div>
+        <div class="chip">"Hey Siri, set Glow brightness to 80%"</div>
+      </div>
+    </div>
+
+    <div id="support" class="support-section">
+      <h2>Need Help or Support?</h2>
+      <p>Need help pairing a lamp, troubleshooting a connection, or reporting an issue? Start with the support page.</p>
+      <a href="support.html" class="btn">Open Support</a>
+    </div>
+
+    <footer>
+      <p>© 2026 Speculative Dynamics. All rights reserved.</p>
+      <p style="margin-top: 8px;">
+        <a href="privacy.html">Privacy Policy</a> • 
+        <a href="terms.html">Terms of Service</a> • 
+        <a href="support.html">Support</a>
+      </p>
+      <p class="disclaimer">
+        Glow is an independent application developed by Speculative Dynamics. It is not affiliated with, sponsored by, or endorsed by , , or their respective affiliates. All product names, trademarks, and registered trademarks are the property of their respective owners and are used strictly to identify hardware compatibility.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
